@@ -1,12 +1,15 @@
-<p align="left"><img src="./assets/banner.png" alt="nicoogg · I build tools that actually ship" width="100%"></p>
+<p align="left"><a href="https://nicoogg.github.io"><img src="./assets/banner.png" alt="nicoogg · I build tools that actually ship" width="100%"></a></p>
 
 ### `/*` Hi, I'm nicoogg `*/`
 
 Developer based in Verona, Italy. I build web apps, internal tools and automations by day, and security software by night.
 
+**Portfolio:** [nicoogg.github.io](https://nicoogg.github.io) ↗
+
 ```text
 $ whoami --verbose
 role .............. developer
+portfolio ......... nicoogg.github.io
 work .............. GS Loft · github.com/GS-Loft-Dev
 building .......... corvex · security agents + corvexai (in development)
 live .............. wantdownload · wantdownload.vercel.app
