@@ -16,6 +16,8 @@ Developer based in Verona, Italy. I build web apps, internal tools and automatio
 <a href="https://nicoogg.github.io/#run=matrix"><img src="./assets/cmd-matrix.svg" alt="$ matrix" height="28"></a>
 </p>
 
+🎮 There's a game in the shell too: attacks fly toward the core and you type their names to block them. <a href="https://nicoogg.github.io/#run=firewall"><img src="./assets/cmd-firewall.svg" alt="$ firewall" height="28" align="absmiddle"></a>
+
 <a href="https://nicoogg.github.io"><img src="./assets/session.svg" alt="A looping shell session: whoami, ls projects, cat corvex, corvexai --specs, neofetch" width="100%"></a>
 
 ### `/*` Work `*/`

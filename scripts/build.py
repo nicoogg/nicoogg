@@ -355,5 +355,5 @@ if ONLY == "all":
     write("status-live.svg", badge("LIVE", "#3ddc84"))
     write("status-dev.svg", badge("IN DEVELOPMENT", "#f5a524"))
     write("status-work.svg", badge("DAY JOB", "#6f9bff"))
-    for c in ["help", "neofetch", "projects", "corvexai", "git log", "scan", "matrix"]:
+    for c in ["help", "neofetch", "projects", "corvexai", "git log", "scan", "matrix", "firewall"]:
         write(f"cmd-{c.replace(' ', '-')}.svg", chip(c))
