@@ -299,9 +299,8 @@ def activity():
     try: events = json.load(urllib.request.urlopen(req, timeout=20))
     except Exception as e: print("events:", e); events = []
     now = datetime.datetime.now(datetime.timezone.utc)
-    def ago(ts):
-        m = int((now - datetime.datetime.fromisoformat(ts.replace("Z", "+00:00"))).total_seconds() // 60)
-        return f"{m}m" if m < 60 else f"{m // 60}h" if m < 1440 else f"{m // 1440}d"
+    def ago(ts):  # an absolute date, so the card only changes when something new happens
+        return datetime.datetime.fromisoformat(ts.replace("Z", "+00:00")).strftime("%d %b").lstrip("0")
     def desc(e):
         p = e.get("payload") or {}
         t = e["type"]
@@ -327,28 +326,53 @@ def activity():
         lines.append(f"""<g opacity="0"><animate attributeName="opacity" from="0" to="1" begin="{1.1 + i * .22:.2f}s" dur=".3s" fill="freeze"/>
 <animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" begin="{1.1 + i * .22:.2f}s" dur=".3s" fill="freeze"/>
 <text x="24" y="{y}"><tspan fill="#f5a524">{ESC(h)}</tspan><tspan fill="#3ddc84"> {ESC(k):<7}</tspan><tspan fill="#fff">{ESC(repo)}</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">{ESC(msg)}</tspan></text>
-<text x="{W - 24}" y="{y}" fill="#666" text-anchor="end">{ESC(a)} ago</text></g>""")
+<text x="{W - 24}" y="{y}" fill="#666" text-anchor="end">{ESC(a)}</text></g>""")
     cmd = "git log --live --author=nicoogg"
-    stamp = now.strftime("%Y-%m-%d %H:%M UTC")
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Latest public GitHub activity of nicoogg, updated {stamp}">
+    stamp = ("last event " + datetime.datetime.fromisoformat(events[0]["created_at"].replace("Z", "+00:00")).strftime("%Y-%m-%d")) if events else "no events yet"
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Latest public GitHub activity of nicoogg, {stamp}">
 <style>{FONT_CSS} text{{font-size:12px;white-space:pre}} .cur{{animation:b 1s steps(1) infinite}} @keyframes b{{50%{{opacity:0}}}}</style>
 <defs><clipPath id="ty"><rect x="140" y="40" height="20" width="0"><animate attributeName="width" from="0" to="{len(cmd) * cw:.0f}" begin=".3s" dur=".7s" fill="freeze" calcMode="discrete" values="{";".join(f"{i * cw:.1f}" for i in range(len(cmd) + 1))}"/></rect></clipPath></defs>
 <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="8" fill="#0A0A0A" stroke="#222"/>
 <path d="M0 32.5H{W}" stroke="#1C1C1C"/>
 <circle cx="22" cy="16" r="5" fill="#2a2a2a"/><circle cx="40" cy="16" r="5" fill="#2a2a2a"/><circle cx="58" cy="16" r="5" fill="#2a2a2a"/>
-<text x="{W / 2}" y="20" fill="#666" text-anchor="middle" style="font-size:11px">live activity · refreshed every 6h by GitHub Actions</text>
+<text x="{W / 2}" y="20" fill="#666" text-anchor="middle" style="font-size:11px">live activity · refreshed every hour by GitHub Actions</text>
 <g transform="translate({W - 74} 9)"><rect width="58" height="15" rx="3" fill="#111" stroke="#2a2a2a"/><circle cx="10" cy="7.5" r="3" fill="#3ddc84"><animate attributeName="r" values="3;4.5;3" dur="1.4s" repeatCount="indefinite"/></circle><text x="18" y="11" fill="#9a9a9a" style="font-size:8.5px">LIVE</text></g>
 <text x="24" y="54"><tspan fill="#3ddc84">nicoogg@dash</tspan><tspan fill="#777">:</tspan><tspan fill="#6f9bff">~</tspan><tspan fill="#777">$</tspan></text>
 <text x="140" y="54" fill="#fff" clip-path="url(#ty)">{cmd}</text>
 {"".join(lines)}
-<text x="24" y="{H - 16}" fill="#555" style="font-size:10px">updated {stamp} · {len(rows)} events</text>
+<text x="24" y="{H - 16}" fill="#555" style="font-size:10px">{stamp} · {len(rows)} events</text>
 <rect class="cur" x="{W - 32}" y="{H - 27}" width="8" height="14" fill="#fff"/>
 </svg>"""
 
 
 os.makedirs(OUT, exist_ok=True)
 def write(name, svg): open(os.path.join(OUT, name), "w").write(svg); print("wrote", name, len(svg) // 1024, "KB")
-if ONLY in ("all", "activity"): write("activity.svg", activity())
+def repos_table():
+    """Public repositories table in the README, between <!-- repos:start --> and <!-- repos:end -->."""
+    import re
+    conf = json.load(open(os.path.join(S, "repos.json")))
+    req = urllib.request.Request("https://api.github.com/users/nicoogg/repos?per_page=100&type=owner", headers={"User-Agent": "nicoogg-readme", "Accept": "application/vnd.github+json"})
+    if os.environ.get("GITHUB_TOKEN"): req.add_header("Authorization", "Bearer " + os.environ["GITHUB_TOKEN"])
+    repos = [r for r in json.load(urllib.request.urlopen(req, timeout=20))
+             if not r["fork"] and not r["archived"] and not r["private"] and r["name"] not in conf["hide"]]
+    order = {n: i for i, n in enumerate(conf["order"])}
+    repos.sort(key=lambda r: r["pushed_at"], reverse=True)   # newest first…
+    repos.sort(key=lambda r: order.get(r["name"], 99))       # …after the ones pinned in repos.json
+    rows = ["| Repository | What it is | Language | Updated |", "|---|---|---|---|"]
+    for r in repos:
+        text = (conf["text"].get(r["name"]) or (r.get("description") or "").strip() or "Work in progress.").replace("|", "\\|")
+        when = datetime.datetime.fromisoformat(r["pushed_at"].replace("Z", "+00:00")).strftime("%d %b %Y").lstrip("0")
+        stars = f" ★{r['stargazers_count']}" if r["stargazers_count"] else ""
+        rows.append(f"| [**{r['name']}**]({r['html_url']}){stars} | {text} | {r.get('language') or '—'} | {when} |")
+    path = os.path.join(ROOT, "README.md")
+    md = open(path).read()
+    md, n = re.subn(r"<!-- repos:start -->.*?<!-- repos:end -->", "<!-- repos:start -->\n" + "\n".join(rows) + "\n<!-- repos:end -->", md, flags=re.S)
+    if not n: raise SystemExit("README.md is missing <!-- repos:start --> / <!-- repos:end -->")
+    open(path, "w").write(md); print("README table:", len(repos), "repositories")
+
+
+if ONLY in ("all", "activity", "live"): write("activity.svg", activity())
+if ONLY in ("all", "live"): repos_table()
 if ONLY == "all":
     write("banner.svg", banner())
     write("session.svg", session())

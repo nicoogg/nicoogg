@@ -1,0 +1,9 @@
+{
+  "_how": "How each public repository shows up in the README table. New public repositories appear on their own with their GitHub description; add one here to change its text or order, or list it in 'hide'.",
+  "hide": ["nicoogg"],
+  "order": ["nicoogg.github.io", "corvex-release", "looper", "lumen"],
+  "text": {
+    "nicoogg.github.io": "This portfolio: a shell in the browser, a dot-matrix map of my projects and a typing game.",
+    "corvex-release": "Signed release packages of Corvex. Every update is verified with Ed25519 before it installs."
+  }
+}
