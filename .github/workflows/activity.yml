@@ -5,6 +5,8 @@ on:
   schedule:
     - cron: "17 * * * *"
   workflow_dispatch:
+  repository_dispatch:
+    types: [update-profile]   # sent by my other repositories right after a push
   push:
     paths: ["scripts/**"]
 
