@@ -1,0 +1,30 @@
+name: live activity
+
+# Rebuilds assets/activity.svg from the public GitHub events every 6 hours.
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+  push:
+    paths: ["scripts/build.py"]
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build activity card
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/build.py activity
+      - name: Commit if changed
+        run: |
+          git diff --quiet assets/activity.svg && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/activity.svg
+          git commit -m "Refresh live activity"
+          git push
