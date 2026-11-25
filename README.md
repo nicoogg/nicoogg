@@ -11,6 +11,7 @@ Developer based in Verona, Italy. I build web apps, internal tools and automatio
 <a href="https://nicoogg.github.io/#run=neofetch"><img src="./assets/cmd-neofetch.svg" alt="$ neofetch" height="28"></a>
 <a href="https://nicoogg.github.io/#run=projects"><img src="./assets/cmd-projects.svg" alt="$ projects" height="28"></a>
 <a href="https://nicoogg.github.io/#run=corvexai%20--bench"><img src="./assets/cmd-corvexai.svg" alt="$ corvexai" height="28"></a>
+<a href="https://nicoogg.github.io/#run=corvex-code"><img src="./assets/cmd-corvex-code.svg" alt="$ corvex-code" height="28"></a>
 <a href="https://nicoogg.github.io/#run=git%20log"><img src="./assets/cmd-git-log.svg" alt="$ git log" height="28"></a>
 <a href="https://nicoogg.github.io/#run=scan"><img src="./assets/cmd-scan.svg" alt="$ scan" height="28"></a>
 <a href="https://nicoogg.github.io/#run=matrix"><img src="./assets/cmd-matrix.svg" alt="$ matrix" height="28"></a>
@@ -18,7 +19,7 @@ Developer based in Verona, Italy. I build web apps, internal tools and automatio
 
 🎮 There's a game in the shell too: attacks fly toward the core and you type their names to block them. <a href="https://nicoogg.github.io/#run=firewall"><img src="./assets/cmd-firewall.svg" alt="$ firewall" height="28" align="absmiddle"></a>
 
-<a href="https://nicoogg.github.io"><img src="./assets/session.svg" alt="A looping shell session: whoami, ls projects, cat corvex, corvexai --specs, neofetch" width="100%"></a>
+<a href="https://nicoogg.github.io"><img src="./assets/session.svg" alt="A looping shell session: whoami, ls projects, cat corvex, corvexai --specs, corvex-code, neofetch" width="100%"></a>
 
 ### `/*` Work `*/`
 
@@ -32,6 +33,7 @@ I'm a developer at **GS Loft**. Our team's work lives in the [**GS-Loft-Dev**](h
 |---|---|---|
 | [**Corvex**](https://corvexdevelops.github.io/) | <img src="./assets/status-dev.svg" alt="in development" height="20"> | Security agents powered by **corvexai**, our own AI that runs locally. They test your dashboards, code and computer, find the gaps and fix them. Org: [CorvexDevelops](https://github.com/CorvexDevelops). |
 | [**corvexai**](https://corvexdevelops.github.io/corvexai.html) | <img src="./assets/status-dev.svg" alt="in development" height="20"> | Our own AI model, built in-house by the Corvex team for one job: security. 4B parameters, runs on your machine on 127.0.0.1 and no question ever leaves. It powers CORVUS, the assistant, and ORACLE, the AI code audit. |
+| [**corvex-code**](https://corvexdevelops.github.io/corvex-code.html) | <img src="./assets/status-cc.svg" alt="live, v0.1" height="20"> | The executable code editor from Corvex: runs Python, JavaScript, C, Go, Rust and more with the interpreters on your machine, chains scripts into flows, puts Claude Code, Codex and Gemini next to the code, and Corvex flags issues as you type. Portable for macOS and Windows, updates itself. [Download](https://github.com/CorvexDevelops/corvex-code-releases/releases/latest). |
 | [**wantdownload**](https://wantdownload.vercel.app/app) | <img src="./assets/status-live.svg" alt="live" height="20"> | A web app to save YouTube videos as MP3 or MP4, with an account to find your downloads again. |
 
 <details>
@@ -72,6 +74,34 @@ reported issues verified correctly ....... ████████████�
 ORACLE doesn't even trust itself: questions → candidates → exact line (a made-up quote discards it) → a second check tries to disprove it → only evidence remains, with the fix.
 
 → [corvexai page](https://corvexdevelops.github.io/corvexai.html) · [open source skills and tools](https://github.com/CorvexDevelops) · [<code>corvexai --bench</code> live](https://nicoogg.github.io/#run=corvexai%20--bench)
+
+</details>
+
+<details>
+<summary><code>$ corvex-code --about</code></summary>
+
+<br>
+
+<img src="https://corvexdevelops.github.io/assets/corvex-code-viola.svg" alt="" width="40" align="left">
+
+**№06 corvex-code** · live, v0.1 · by Corvex
+
+The executable code editor. *Write, run, connect.*
+
+<br clear="left">
+
+```text
+▷ run ......... Python, JavaScript, TypeScript, Bash, C, C++, Go, Rust, Ruby, Java, Swift and more
+⌥ flow ........ chain scripts on a canvas: what one prints becomes the next one's input
+✦ agents ...... Claude Code, Codex and Gemini next to the code, in read, edit or full mode
+◉ preview ..... HTML, SVG, Markdown, CSV and images update while you type
+■ corvex ...... a local bridge on 127.0.0.1 flags issues line by line; code never leaves your computer
+↻ updates ..... new versions install themselves after the Ed25519 signature checks out
+```
+
+No installer: unzip on macOS, run the `.exe` on Windows.
+
+→ [macOS Apple silicon](https://github.com/CorvexDevelops/corvex-code-releases/releases/latest/download/corvex-code-mac-arm64.zip) · [macOS Intel](https://github.com/CorvexDevelops/corvex-code-releases/releases/latest/download/corvex-code-mac-x64.zip) · [Windows](https://github.com/CorvexDevelops/corvex-code-releases/releases/latest/download/corvex-code-win-x64-portable.exe) · [the page](https://corvexdevelops.github.io/corvex-code.html) · [<code>corvex-code</code> in the shell](https://nicoogg.github.io/#run=corvex-code)
 
 </details>
 

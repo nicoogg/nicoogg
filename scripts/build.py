@@ -74,7 +74,7 @@ def banner():
   <rect x="{lx:.0f}" y="{ny - 11}" width="{tw:.0f}" height="22" fill="#000" stroke="#fff" stroke-opacity=".8"/>
   <text x="{lx + 8:.0f}" y="{ny + 4}" font-size="11" fill="#fff">{ESC(lab)}</text></g>''')
 
-    statuses = ["shipping corvex · security agents + corvexai", "corvexai · our own 4B security model · runs on 127.0.0.1", "live: wantdownload.vercel.app", "working @ GS Loft · verona", "portfolio → nicoogg.github.io"]
+    statuses = ["shipping corvex · security agents + corvexai", "corvex-code v0.1 · the executable code editor, by Corvex", "corvexai · our own 4B security model · runs on 127.0.0.1", "live: wantdownload.vercel.app", "working @ GS Loft · verona", "portfolio → nicoogg.github.io"]
     n = len(statuses)
     foot = []
     for i, st in enumerate(statuses):
@@ -213,7 +213,7 @@ def session():
     PROMPT = "nicoogg@dash:~$ "
     scenes = [
         ("whoami", ["nicoogg — developer @ GS Loft · building corvex · shipping wantdownload"]),
-        ("ls projects/", ["<d>corvex.md</d>   <d>corvexai.md</d>   <d>wantdownload.md</d>   <d>gsloft.md</d>"]),
+        ("ls projects/", ["<d>corvex.md</d>   <d>corvexai.md</d>   <d>corvex-code.md</d>   <d>wantdownload.md</d>   <d>gsloft.md</d>"]),
         ("cat projects/corvex.md", ["<b>№01 corvex</b>  <g>[in development]</g>",
                                     "security agents powered by corvexai, our own local AI.",
                                     "they test dashboards, code and computers, find the gaps and fix them."]),
@@ -222,8 +222,12 @@ def session():
                               "runs on ... your machine, only on 127.0.0.1 · no question leaves",
                               "bench ..... <g>96%</g> issues found · <g>100%</g> defenses recognised, exact line",
                               "powers .... CORVUS (assistant) + ORACLE (AI code audit)"]),
+        ("corvex-code", ["<v>  ▄▀      ▀▄  </v>  <v>corvex-code</v>  <g>[live · v0.1 · by Corvex]</g>",
+                         "<v>▄▀    ▄▄    ▀▄</v>  the executable code editor: write, run, connect",
+                         "<v>▀▄    ▀▀    ▄▀</v>  runs Python, JS, C, Go, Rust… · flows · Claude Code next to the code",
+                         "<v>  ▀▄      ▄▀  </v>  portable for macOS and Windows · updates itself"]),
         ("neofetch", ["<b>      ██      </b>  nicoogg@dash", "<b>  ██  ██  ██  </b>  os ....... nicoogg.os 2.0", "<b>    ██████    </b>  host ..... GS Loft",
-                      "<b>  ██  ██  ██  </b>  projects . 5 (1 live, 2 in dev)", "<b>      ██      </b>  ai ....... corvexai 4B · local"]),
+                      "<b>  ██  ██  ██  </b>  projects . 6 (2 live, 2 in dev)", "<b>      ██      </b>  ai ....... corvexai 4B · local"]),
         ("open nicoogg.github.io", ["<g>→ every command works for real there. come type something.</g>"]),
     ]
     per, gap, hold = .065, .35, 2.6
@@ -239,7 +243,7 @@ def session():
 
     def colorize(o):
         o = ESC(o).replace("&lt;b&gt;", '<tspan fill="#fff" font-weight="500">').replace("&lt;/b&gt;", "</tspan>")
-        for tag, col in (("g", "#3ddc84"), ("y", "#f5a524"), ("d", "#6f9bff")):
+        for tag, col in (("g", "#3ddc84"), ("y", "#f5a524"), ("d", "#6f9bff"), ("v", "#B69CFF")):
             o = o.replace(f"&lt;{tag}&gt;", f'<tspan fill="{col}">').replace(f"&lt;/{tag}&gt;", "</tspan>")
         return o
 
@@ -278,7 +282,7 @@ def session():
 
 
 # ───────────────────────── command buttons ─────────────────────────
-def chip(cmd):
+def chip(cmd, color="#e6e6e6"):
     label = f"$ {cmd}"
     w = len(label) * 7.2 + 28
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w:.0f} 28" width="{w:.0f}" height="28" role="img" aria-label="run {cmd}">
@@ -287,7 +291,7 @@ def chip(cmd):
 <clipPath id="r"><rect x="1" y="1" width="{w - 2:.0f}" height="26" rx="5"/></clipPath></defs>
 <rect x=".5" y=".5" width="{w - 1:.0f}" height="27" rx="5" fill="#0A0A0A" stroke="#333"/>
 <g clip-path="url(#r)"><rect x="-60" y="0" width="60" height="28" fill="url(#sh)"><animate attributeName="x" values="-60;{w + 60:.0f};{w + 60:.0f}" keyTimes="0;.35;1" dur="4s" begin="{(sum(map(ord, cmd)) % 30) / 10:.1f}s" repeatCount="indefinite"/></rect></g>
-<text x="12" y="18" font-size="12" fill="#3ddc84">$</text><text x="26" y="18" font-size="12" fill="#e6e6e6">{ESC(cmd)}</text>
+<text x="12" y="18" font-size="12" fill="#3ddc84">$</text><text x="26" y="18" font-size="12" fill="{color}">{ESC(cmd)}</text>
 <rect x="{w - 14:.0f}" y="9" width="6" height="11" fill="#e6e6e6"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1.1s" repeatCount="indefinite"/></rect>
 </svg>"""
 
@@ -379,5 +383,7 @@ if ONLY == "all":
     write("status-live.svg", badge("LIVE", "#3ddc84"))
     write("status-dev.svg", badge("IN DEVELOPMENT", "#f5a524"))
     write("status-work.svg", badge("DAY JOB", "#6f9bff"))
+    write("status-cc.svg", badge("LIVE · v0.1", "#B69CFF"))
     for c in ["help", "neofetch", "projects", "corvexai", "git log", "scan", "matrix", "firewall"]:
         write(f"cmd-{c.replace(' ', '-')}.svg", chip(c))
+    write("cmd-corvex-code.svg", chip("corvex-code", "#B69CFF"))

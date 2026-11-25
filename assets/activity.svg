@@ -12,7 +12,7 @@ text{font-family:G,ui-monospace,Menlo,monospace} text{font-size:12px;white-space
 <text x="140" y="54" fill="#fff" clip-path="url(#ty)">git log --live --author=nicoogg</text>
 <g opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.10s" dur=".3s" fill="freeze"/>
 <animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" begin="1.10s" dur=".3s" fill="freeze"/>
-<text x="24" y="84"><tspan fill="#f5a524">1962244</tspan><tspan fill="#3ddc84"> release</tspan><tspan fill="#fff">CorvexDevelops/corvex-code-releases</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">v0.1.0</tspan></text>
+<text x="24" y="84"><tspan fill="#f5a524">6223397</tspan><tspan fill="#3ddc84"> release</tspan><tspan fill="#fff">CorvexDevelops/corvex-code-releases</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">v0.1.1</tspan></text>
 <text x="836" y="84" fill="#666" text-anchor="end">25 Nov</text></g><g opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.32s" dur=".3s" fill="freeze"/>
 <animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" begin="1.32s" dur=".3s" fill="freeze"/>
 <text x="24" y="106"><tspan fill="#f5a524">9888709</tspan><tspan fill="#3ddc84"> issue  </tspan><tspan fill="#fff">CorvexDevelops/corvex-opensource</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">opened issue</tspan></text>
