@@ -108,12 +108,12 @@ security .... SAST, secrets, CVE matching, local AI (corvexai)
 | Repository | What it is | Language | Updated |
 |---|---|---|---|
 | [**nicoogg.github.io**](https://github.com/nicoogg/nicoogg.github.io) | This portfolio: a shell in the browser, a dot-matrix map of my projects and a typing game. | JavaScript | 25 Nov 2026 |
-| [**corvex-release**](https://github.com/nicoogg/corvex-release) | Signed release packages of Corvex. Every update is verified with Ed25519 before it installs. | — | 18 Nov 2026 |
-| [**looper**](https://github.com/nicoogg/looper) ★1 | Work in progress. | JavaScript | 11 Nov 2026 |
-| [**lumen**](https://github.com/nicoogg/lumen) | Work in progress. | JavaScript | 17 Jun 2026 |
-| [**images-renamer**](https://github.com/nicoogg/images-renamer) | Script for managing images (.jpg) using nomenclature. | Python | 19 Dec 2025 |
-| [**ShopifyProd-Extract**](https://github.com/nicoogg/ShopifyProd-Extract) | A Python script to extract products from a Shopify store using the Shopify API or the public JSON feed. Ideal for inventory analysis, data automation, or price and availability monitoring. | Python | 30 Jan 2025 |
-| [**SerpApi-Images**](https://github.com/nicoogg/SerpApi-Images) | This Python script utilizes SerpApi to perform Google Image searches and retrieve image URLs programmatically. Perfect for web scraping, automation, or data analysis. | Python | 29 Jan 2025 |
+| [**corvex-release**](https://github.com/nicoogg/corvex-release) | Signed release packages of Corvex. Every update is verified with Ed25519 before it installs. | — | 25 Nov 2026 |
+| [**looper**](https://github.com/nicoogg/looper) ★1 | Work in progress. | JavaScript | 25 Nov 2026 |
+| [**lumen**](https://github.com/nicoogg/lumen) | Work in progress. | JavaScript | 25 Nov 2026 |
+| [**ShopifyProd-Extract**](https://github.com/nicoogg/ShopifyProd-Extract) | A Python script to extract products from a Shopify store using the Shopify API or the public JSON feed. Ideal for inventory analysis, data automation, or price and availability monitoring. | Python | 25 Nov 2026 |
+| [**SerpApi-Images**](https://github.com/nicoogg/SerpApi-Images) | This Python script utilizes SerpApi to perform Google Image searches and retrieve image URLs programmatically. Perfect for web scraping, automation, or data analysis. | Python | 25 Nov 2026 |
+| [**images-renamer**](https://github.com/nicoogg/images-renamer) | Script for managing images (.jpg) using nomenclature. | Python | 25 Nov 2026 |
 <!-- repos:end -->
 
 <sub>Updated on its own every hour by a GitHub Action.</sub>
