@@ -45,7 +45,7 @@ def banner():
     k1 = ";".join(f"{i / len(l1):.4f}" for i in range(len(l1) + 1))
     k2 = ";".join(f"{i / len(l2):.4f}" for i in range(len(l2) + 1))
     chips_t = e2 + 0.2
-    chips = [("GS Loft", " developer", None), ("corvex", " in development", "#3ddc84"), ("wantdownload", " live", "#2f6bff")]
+    chips = [("GS Loft", " developer", None), ("corvex", " in dev", "#3ddc84"), ("corvexai", " 4B · local AI", "#3ddc84"), ("wantdownload", " live", "#2f6bff")]
     chip_svg, cx = [], 96
     for i, (b, rest, dot) in enumerate(chips):
         w = (len(b) + len(rest)) * 7.2 + 20 + (14 if dot else 0)
@@ -61,7 +61,7 @@ def banner():
     # right side: avatar block + project nodes with wires and packets
     ax, ay, asz = 985, 76, 232
     acx, acy = ax + asz / 2, ay + asz / 2
-    nodes = [(900, 84, "№01 corvex"), (880, 318, "№02 wantdownload"), (690, 318, "№03 GS Loft")]
+    nodes = [(900, 84, "№01 corvex"), (880, 318, "№02 wantdownload"), (690, 318, "№03 GS Loft"), (700, 84, "№04 corvexai")]
     wires, pk, labs = [], [], []
     for i, (nx, ny, lab) in enumerate(nodes):
         path = f"M{acx},{acy} L{nx},{ny}"
@@ -74,7 +74,7 @@ def banner():
   <rect x="{lx:.0f}" y="{ny - 11}" width="{tw:.0f}" height="22" fill="#000" stroke="#fff" stroke-opacity=".8"/>
   <text x="{lx + 8:.0f}" y="{ny + 4}" font-size="11" fill="#fff">{ESC(lab)}</text></g>''')
 
-    statuses = ["shipping corvex · security agents + corvexai", "live: wantdownload.vercel.app", "working @ GS Loft · verona", "portfolio → nicoogg.github.io"]
+    statuses = ["shipping corvex · security agents + corvexai", "corvexai · our own 4B security model · runs on 127.0.0.1", "live: wantdownload.vercel.app", "working @ GS Loft · verona", "portfolio → nicoogg.github.io"]
     n = len(statuses)
     foot = []
     for i, st in enumerate(statuses):
@@ -176,7 +176,7 @@ def terminal():
 <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="8" fill="#0A0A0A" stroke="#222"/>
 <path d="M0 32.5H{W}" stroke="#1C1C1C"/>
 <circle cx="22" cy="16" r="5" fill="#2a2a2a"/><circle cx="40" cy="16" r="5" fill="#2a2a2a"/><circle cx="58" cy="16" r="5" fill="#2a2a2a"/>
-<text x="{W / 2}" y="20" font-size="11" fill="#666" text-anchor="middle">nicoogg@verona: ~</text>
+<text x="{W / 2}" y="20" font-size="11" fill="#666" text-anchor="middle">nicoogg@dash: ~</text>
 <circle cx="{W - 24}" cy="16" r="3.5" fill="#3ddc84"><animate attributeName="opacity" values="1;.25;1" dur="1.6s" repeatCount="indefinite"/></circle>
 {"".join(out)}
 </svg>'''
@@ -210,17 +210,20 @@ class Timeline:
 def session():
     W, LH, top = 860, 21, 62
     cw = 13 * 0.6
-    PROMPT = "nicoogg@verona:~$ "
+    PROMPT = "nicoogg@dash:~$ "
     scenes = [
         ("whoami", ["nicoogg — developer @ GS Loft · building corvex · shipping wantdownload"]),
-        ("ls projects/", ["<d>corvex.md</d>   <d>wantdownload.md</d>   <d>gsloft.md</d>   <d>next.md</d>"]),
+        ("ls projects/", ["<d>corvex.md</d>   <d>corvexai.md</d>   <d>wantdownload.md</d>   <d>gsloft.md</d>"]),
         ("cat projects/corvex.md", ["<b>№01 corvex</b>  <g>[in development]</g>",
                                     "security agents powered by corvexai, our own local AI.",
                                     "they test dashboards, code and computers, find the gaps and fix them."]),
-        ("neofetch", ["<b>      ██      </b>  nicoogg@verona", "<b>  ██  ██  ██  </b>  os ....... nicoogg.os 2.0", "<b>    ██████    </b>  host ..... GS Loft",
-                      "<b>  ██  ██  ██  </b>  projects . 4 (1 live, 1 in dev)", "<b>      ██      </b>  stack .... python · ts · next.js"]),
-        ("scan", ["starting scan of nicoogg.map …", "  01/tcp  <y>building</y>  corvex", "  02/tcp  <g>open</g>      wantdownload",
-                  "  03/tcp  <y>building</y>  GS Loft", "scan done: 0 vulnerabilities (corvex says hi)"]),
+        ("corvexai --specs", ["<b>corvexai</b>  <g>[our own AI model · one job: security]</g>",
+                              "size ...... 4B parameters · 2.9 GB · runs on a laptop too",
+                              "runs on ... your machine, only on 127.0.0.1 · no question leaves",
+                              "bench ..... <g>96%</g> issues found · <g>100%</g> defenses recognised, exact line",
+                              "powers .... CORVUS (assistant) + ORACLE (AI code audit)"]),
+        ("neofetch", ["<b>      ██      </b>  nicoogg@dash", "<b>  ██  ██  ██  </b>  os ....... nicoogg.os 2.0", "<b>    ██████    </b>  host ..... GS Loft",
+                      "<b>  ██  ██  ██  </b>  projects . 5 (1 live, 2 in dev)", "<b>      ██      </b>  ai ....... corvexai 4B · local"]),
         ("open nicoogg.github.io", ["<g>→ every command works for real there. come type something.</g>"]),
     ]
     per, gap, hold = .065, .35, 2.6
@@ -248,7 +251,7 @@ def session():
         widths = [(0, 0)] + [(t0 + k * per, f"{(k + 1) * cw:.1f}") for k in range(len(c))] + [(t_end + .249, 0)]
         widths = [w for j, w in enumerate(widths) if j == 0 or w[0] > widths[j - 1][0]]
         clip = f'<clipPath id="c{i}"><rect x="{px:.1f}" y="{y - 15}" height="22" width="0">{tl.disc("width", widths)}</rect></clipPath>'
-        body = [f'<text x="24" y="{y}"><tspan fill="#3ddc84">nicoogg@verona</tspan><tspan fill="#777">:</tspan><tspan fill="#6f9bff">~</tspan><tspan fill="#777">$ </tspan></text>',
+        body = [f'<text x="24" y="{y}"><tspan fill="#3ddc84">nicoogg@dash</tspan><tspan fill="#777">:</tspan><tspan fill="#6f9bff">~</tspan><tspan fill="#777">$ </tspan></text>',
                 f'<text x="{px:.1f}" y="{y}" fill="#fff" clip-path="url(#c{i})">{ESC(c)}</text>']
         for k, (o, lt) in enumerate(zip(outs, line_t)):
             body.append(f'<text x="24" y="{y + (k + 1) * LH}" fill="#cfcfcf" visibility="hidden">{tl.disc("visibility", [(0, "hidden"), (lt, "visible"), (t_end + .249, "hidden")])}{colorize(o)}</text>')
@@ -256,7 +259,7 @@ def session():
         ny = y + (len(outs) + 1) * LH
         cx = [(0, f"{px:.1f}")] + [(t0 + k * per, f"{px + (k + 1) * cw:.1f}") for k in range(len(c))] + [(line_t[-1] + .05, f"{px:.1f}")]
         cy = [(0, y - 12), (line_t[-1] + .05, ny - 12)]
-        body.append(f'<text x="24" y="{ny}" visibility="hidden">{tl.disc("visibility", [(0, "hidden"), (line_t[-1] + .05, "visible"), (t_end + .249, "hidden")])}<tspan fill="#3ddc84">nicoogg@verona</tspan><tspan fill="#777">:</tspan><tspan fill="#6f9bff">~</tspan><tspan fill="#777">$ </tspan></text>')
+        body.append(f'<text x="24" y="{ny}" visibility="hidden">{tl.disc("visibility", [(0, "hidden"), (line_t[-1] + .05, "visible"), (t_end + .249, "hidden")])}<tspan fill="#3ddc84">nicoogg@dash</tspan><tspan fill="#777">:</tspan><tspan fill="#6f9bff">~</tspan><tspan fill="#777">$ </tspan></text>')
         body.append(f'<rect class="cur" width="8" height="15" fill="#fff">{tl.disc("x", cx)}{tl.disc("y", cy)}</rect>')
         groups.append((clip, f'<g visibility="{"visible" if i == 0 else "hidden"}">{vis}{"".join(body)}</g>'))
 
@@ -267,7 +270,7 @@ def session():
 <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="8" fill="#0A0A0A" stroke="#222"/>
 <path d="M0 32.5H{W}" stroke="#1C1C1C"/>
 <circle cx="22" cy="16" r="5" fill="#ff5f57" opacity=".8"/><circle cx="40" cy="16" r="5" fill="#febc2e" opacity=".8"/><circle cx="58" cy="16" r="5" fill="#28c840" opacity=".8"/>
-<text x="{W / 2}" y="20" font-size="11" fill="#666" text-anchor="middle" style="font-size:11px">nicoogg@verona: ~ — portfolio-sh</text>
+<text x="{W / 2}" y="20" font-size="11" fill="#666" text-anchor="middle" style="font-size:11px">nicoogg@dash: ~ — portfolio-sh</text>
 <g transform="translate({W - 86} 9)"><rect width="70" height="15" rx="3" fill="#111" stroke="#2a2a2a"/><circle cx="10" cy="7.5" r="3" fill="#3ddc84"><animate attributeName="opacity" values="1;.25;1" dur="1.4s" repeatCount="indefinite"/></circle><text x="18" y="11" fill="#9a9a9a" style="font-size:8.5px">REC · LOOP</text></g>
 {"".join(g for _, g in groups)}
 <rect x="0" y="{H - 3}" height="2" fill="#3ddc84" opacity=".6" width="0"><animate attributeName="width" values="0;{W}" dur="{T:.2f}s" repeatCount="indefinite"/></rect>
@@ -329,14 +332,14 @@ def activity():
     stamp = now.strftime("%Y-%m-%d %H:%M UTC")
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Latest public GitHub activity of nicoogg, updated {stamp}">
 <style>{FONT_CSS} text{{font-size:12px;white-space:pre}} .cur{{animation:b 1s steps(1) infinite}} @keyframes b{{50%{{opacity:0}}}}</style>
-<defs><clipPath id="ty"><rect x="160" y="40" height="20" width="0"><animate attributeName="width" from="0" to="{len(cmd) * cw:.0f}" begin=".3s" dur=".7s" fill="freeze" calcMode="discrete" values="{";".join(f"{i * cw:.1f}" for i in range(len(cmd) + 1))}"/></rect></clipPath></defs>
+<defs><clipPath id="ty"><rect x="140" y="40" height="20" width="0"><animate attributeName="width" from="0" to="{len(cmd) * cw:.0f}" begin=".3s" dur=".7s" fill="freeze" calcMode="discrete" values="{";".join(f"{i * cw:.1f}" for i in range(len(cmd) + 1))}"/></rect></clipPath></defs>
 <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="8" fill="#0A0A0A" stroke="#222"/>
 <path d="M0 32.5H{W}" stroke="#1C1C1C"/>
 <circle cx="22" cy="16" r="5" fill="#2a2a2a"/><circle cx="40" cy="16" r="5" fill="#2a2a2a"/><circle cx="58" cy="16" r="5" fill="#2a2a2a"/>
 <text x="{W / 2}" y="20" fill="#666" text-anchor="middle" style="font-size:11px">live activity · refreshed every 6h by GitHub Actions</text>
 <g transform="translate({W - 74} 9)"><rect width="58" height="15" rx="3" fill="#111" stroke="#2a2a2a"/><circle cx="10" cy="7.5" r="3" fill="#3ddc84"><animate attributeName="r" values="3;4.5;3" dur="1.4s" repeatCount="indefinite"/></circle><text x="18" y="11" fill="#9a9a9a" style="font-size:8.5px">LIVE</text></g>
-<text x="24" y="54"><tspan fill="#3ddc84">nicoogg@verona</tspan><tspan fill="#777">:</tspan><tspan fill="#6f9bff">~</tspan><tspan fill="#777">$</tspan></text>
-<text x="160" y="54" fill="#fff" clip-path="url(#ty)">{cmd}</text>
+<text x="24" y="54"><tspan fill="#3ddc84">nicoogg@dash</tspan><tspan fill="#777">:</tspan><tspan fill="#6f9bff">~</tspan><tspan fill="#777">$</tspan></text>
+<text x="140" y="54" fill="#fff" clip-path="url(#ty)">{cmd}</text>
 {"".join(lines)}
 <text x="24" y="{H - 16}" fill="#555" style="font-size:10px">updated {stamp} · {len(rows)} events</text>
 <rect class="cur" x="{W - 32}" y="{H - 27}" width="8" height="14" fill="#fff"/>
@@ -352,5 +355,5 @@ if ONLY == "all":
     write("status-live.svg", badge("LIVE", "#3ddc84"))
     write("status-dev.svg", badge("IN DEVELOPMENT", "#f5a524"))
     write("status-work.svg", badge("DAY JOB", "#6f9bff"))
-    for c in ["help", "neofetch", "projects", "git log", "scan", "matrix"]:
+    for c in ["help", "neofetch", "projects", "corvexai", "git log", "scan", "matrix"]:
         write(f"cmd-{c.replace(' ', '-')}.svg", chip(c))
