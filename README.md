@@ -139,7 +139,7 @@ security .... SAST, secrets, CVE matching, local AI (corvexai)
 |---|---|---|---|
 | [**nicoogg.github.io**](https://github.com/nicoogg/nicoogg.github.io) | This portfolio: a shell in the browser, a dot-matrix map of my projects and a typing game. | JavaScript | 25 Nov 2026 |
 | [**corvex-release**](https://github.com/nicoogg/corvex-release) | Signed release packages of Corvex. Every update is verified with Ed25519 before it installs. | — | 25 Nov 2026 |
-| [**looper**](https://github.com/nicoogg/looper) ★1 | Work in progress. | JavaScript | 25 Nov 2026 |
+| [**looper**](https://github.com/nicoogg/looper) | Work in progress. | JavaScript | 25 Nov 2026 |
 | [**lumen**](https://github.com/nicoogg/lumen) | Work in progress. | JavaScript | 25 Nov 2026 |
 | [**ShopifyProd-Extract**](https://github.com/nicoogg/ShopifyProd-Extract) | A Python script to extract products from a Shopify store using the Shopify API or the public JSON feed. Ideal for inventory analysis, data automation, or price and availability monitoring. | Python | 25 Nov 2026 |
 | [**SerpApi-Images**](https://github.com/nicoogg/SerpApi-Images) | This Python script utilizes SerpApi to perform Google Image searches and retrieve image URLs programmatically. Perfect for web scraping, automation, or data analysis. | Python | 25 Nov 2026 |
