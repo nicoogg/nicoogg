@@ -12,26 +12,26 @@ text{font-family:G,ui-monospace,Menlo,monospace} text{font-size:12px;white-space
 <text x="140" y="54" fill="#fff" clip-path="url(#ty)">git log --live --author=nicoogg</text>
 <g opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.10s" dur=".3s" fill="freeze"/>
 <animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" begin="1.10s" dur=".3s" fill="freeze"/>
-<text x="24" y="84"><tspan fill="#f5a524">5764941</tspan><tspan fill="#3ddc84"> push   </tspan><tspan fill="#fff">nicoogg/nicoogg.github.io</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">commits to main</tspan></text>
+<text x="24" y="84"><tspan fill="#f5a524">7039812</tspan><tspan fill="#3ddc84"> push   </tspan><tspan fill="#fff">GS-Loft-Dev/restyling-web</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">commits to main</tspan></text>
 <text x="836" y="84" fill="#666" text-anchor="end">25 Nov</text></g><g opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.32s" dur=".3s" fill="freeze"/>
 <animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" begin="1.32s" dur=".3s" fill="freeze"/>
-<text x="24" y="106"><tspan fill="#f5a524">5021145</tspan><tspan fill="#3ddc84"> push   </tspan><tspan fill="#fff">nicoogg/nicoogg.github.io</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">commits to main</tspan></text>
-<text x="836" y="106" fill="#666" text-anchor="end">25 Nov</text></g><g opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.54s" dur=".3s" fill="freeze"/>
+<text x="24" y="106"><tspan fill="#f5a524">6765793</tspan><tspan fill="#3ddc84"> push   </tspan><tspan fill="#fff">GS-Loft-Dev/luvhub</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">commits to main</tspan></text>
+<text x="836" y="106" fill="#666" text-anchor="end">26 Nov</text></g><g opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.54s" dur=".3s" fill="freeze"/>
 <animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" begin="1.54s" dur=".3s" fill="freeze"/>
-<text x="24" y="128"><tspan fill="#f5a524">2909712</tspan><tspan fill="#3ddc84"> push   </tspan><tspan fill="#fff">CorvexDevelops/corvexdevelops.github.io</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">commits to main</tspan></text>
+<text x="24" y="128"><tspan fill="#f5a524">9364611</tspan><tspan fill="#3ddc84"> push   </tspan><tspan fill="#fff">nicoogg/nicoogg.github.io</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">commits to main</tspan></text>
 <text x="836" y="128" fill="#666" text-anchor="end">25 Nov</text></g><g opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.76s" dur=".3s" fill="freeze"/>
 <animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" begin="1.76s" dur=".3s" fill="freeze"/>
-<text x="24" y="150"><tspan fill="#f5a524">8492412</tspan><tspan fill="#3ddc84"> push   </tspan><tspan fill="#fff">nicoogg/nicoogg</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">commits to main</tspan></text>
+<text x="24" y="150"><tspan fill="#f5a524">7719823</tspan><tspan fill="#3ddc84"> push   </tspan><tspan fill="#fff">nicoogg/nicoogg</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">commits to main</tspan></text>
 <text x="836" y="150" fill="#666" text-anchor="end">25 Nov</text></g><g opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.98s" dur=".3s" fill="freeze"/>
 <animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" begin="1.98s" dur=".3s" fill="freeze"/>
-<text x="24" y="172"><tspan fill="#f5a524">5633174</tspan><tspan fill="#3ddc84"> push   </tspan><tspan fill="#fff">nicoogg/nicoogg.github.io</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">commits to main</tspan></text>
+<text x="24" y="172"><tspan fill="#f5a524">6078538</tspan><tspan fill="#3ddc84"> push   </tspan><tspan fill="#fff">GS-Loft-Dev/restyling-web</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">commits to main</tspan></text>
 <text x="836" y="172" fill="#666" text-anchor="end">25 Nov</text></g><g opacity="0"><animate attributeName="opacity" from="0" to="1" begin="2.20s" dur=".3s" fill="freeze"/>
 <animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" begin="2.20s" dur=".3s" fill="freeze"/>
-<text x="24" y="194"><tspan fill="#f5a524">5258578</tspan><tspan fill="#3ddc84"> push   </tspan><tspan fill="#fff">GS-Loft-Dev/restyling-web</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">commits to main</tspan></text>
+<text x="24" y="194"><tspan fill="#f5a524">2894948</tspan><tspan fill="#3ddc84"> push   </tspan><tspan fill="#fff">nicoogg/nicoogg.github.io</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">commits to main</tspan></text>
 <text x="836" y="194" fill="#666" text-anchor="end">25 Nov</text></g><g opacity="0"><animate attributeName="opacity" from="0" to="1" begin="2.42s" dur=".3s" fill="freeze"/>
 <animateTransform attributeName="transform" type="translate" from="-8 0" to="0 0" begin="2.42s" dur=".3s" fill="freeze"/>
-<text x="24" y="216"><tspan fill="#f5a524">4672612</tspan><tspan fill="#3ddc84"> push   </tspan><tspan fill="#fff">CorvexDevelops/.github</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">commits to main</tspan></text>
-<text x="836" y="216" fill="#666" text-anchor="end">26 Nov</text></g>
+<text x="24" y="216"><tspan fill="#f5a524">0010232</tspan><tspan fill="#3ddc84"> push   </tspan><tspan fill="#fff">CorvexDevelops/corvex-bench</tspan><tspan fill="#777"> · </tspan><tspan fill="#cfcfcf">commits to main</tspan></text>
+<text x="836" y="216" fill="#666" text-anchor="end">25 Nov</text></g>
 <text x="24" y="266" fill="#555" style="font-size:10px">last event 2026-11-25 · 7 events</text>
 <rect class="cur" x="828" y="255" width="8" height="14" fill="#fff"/>
 </svg>
